@@ -2,7 +2,7 @@
 
 ![Banner](assets/banner.svg)
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&pause=1000&color=FF4D50&center=true&vCenter=true&width=600&lines=Software+Developer+%7C+Desktop+%E2%80%A2+Mobile+%E2%80%A2+Web;DevOps+%26+Cloud+Enthusiast;Fire+Brigade+IT+by+Passion+%F0%9F%9A%92;No+sales+team%2C+no+hotline+%E2%80%93+straight+to+the+developer)](https://www.kuntze-it.de/)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&pause=1000&color=FF4D50&center=true&vCenter=true&width=600&lines=Software+Developer+%7C+Desktop+%E2%80%A2+Mobile+%E2%80%A2+Web;DevOps+%26+Cloud+Enthusiast;Fire+Brigade+IT+by+Passion+%F0%9F%9A%92)](https://www.kuntze-it.de/)
 
 <br>
 
