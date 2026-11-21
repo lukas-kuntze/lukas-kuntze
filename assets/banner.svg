@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Lukas Kuntze – Software, die deine Prozesse trägt.">
+  <!-- ==========================================================================
+       Profil-Banner für GitHub: dunkle Karte mit Name + Slogan links,
+       dekorativer Laptop mit Code und diagonalen Bändern rechts.
+       Farben: Markenfarben von kuntze-it.de (Rot #bc0003/#ff4d50, Navy #154c79,
+       Slate-Grautöne). Selbst-enthalten, keine externen Quellen.
+       ========================================================================== -->
+  <style>
+    .kicker {
+      font: 600 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      fill: #94a3b8;
+    }
+    .title {
+      font: 700 46px/1.2 "Roboto Slab", system-ui, -apple-system, "Segoe UI", sans-serif;
+      fill: #f1f5f9;
+    }
+    .lead {
+      font: 400 19px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+      fill: #cbd5e1;
+    }
+    .grid { fill: none; stroke: #ffffff; stroke-opacity: 0.035; stroke-width: 1; }
+    .lid { fill: #334155; }
+    .hinge { fill: #475569; }
+    .band-gray { fill: #64748b; opacity: 0.4; }
+    .corner { fill: #334155; opacity: 0.7; }
+    .is-slate { fill: #475569; }
+    .is-light { fill: #94a3b8; }
+    .is-blue { fill: #3b82f6; }
+    .is-green { fill: #22c55e; }
+    .is-amber { fill: #f59e0b; }
+    .is-red { fill: #ff4d50; }
+    .is-cursor { fill: #f1f5f9; animation: blink 1.1s steps(1) infinite; }
+    .is-panel-bg { fill: #0f172a; opacity: 0.8; }
+    .is-panel { fill: #334155; }
+    @keyframes blink {
+      0%, 55% { opacity: 1; }
+      56%, 100% { opacity: 0; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5b9bd5" stop-opacity="0.26"/>
+      <stop offset="0.6" stop-color="#5b9bd5" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#5b9bd5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#64748b"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <!-- Markenband: Rot von kuntze-it.de -->
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff4d50"/>
+      <stop offset="1" stop-color="#bc0003"/>
+    </linearGradient>
+    <!-- Sekundärband: Navy -->
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5b9bd5"/>
+      <stop offset="1" stop-color="#154c79"/>
+    </linearGradient>
+    <!-- Fade links, damit das Bild nie unter den Text läuft -->
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="0.35" stop-color="#ffffff"/>
+    </linearGradient>
+    <mask id="art-fade">
+      <rect x="560" y="0" width="640" height="300" fill="url(#fade)"/>
+    </mask>
+    <clipPath id="card">
+      <rect x="0" y="0" width="1200" height="300" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <!-- Karte -->
+    <rect x="0" y="0" width="1200" height="300" fill="url(#bg)"/>
+
+    <!-- Raster -->
+    <path class="grid" d="
+      M 60 0 V 300 M 120 0 V 300 M 180 0 V 300 M 240 0 V 300 M 300 0 V 300
+      M 360 0 V 300 M 420 0 V 300 M 480 0 V 300 M 540 0 V 300 M 600 0 V 300
+      M 660 0 V 300 M 720 0 V 300 M 780 0 V 300 M 840 0 V 300 M 900 0 V 300
+      M 960 0 V 300 M 1020 0 V 300 M 1080 0 V 300 M 1140 0 V 300
+      M 0 60 H 1200 M 0 120 H 1200 M 0 180 H 1200 M 0 240 H 1200"/>
+
+    <!-- Bildteil rechts, mit Fade nach links -->
+    <g mask="url(#art-fade)">
+      <!-- Diagonale Bänder: Rot = Marke, Navy = Sekundärfarbe -->
+      <g transform="skewX(-18)">
+        <rect class="band-gray" x="800" y="-20" width="24" height="340"/>
+        <rect x="838" y="-20" width="46" height="340" fill="url(#brand)" opacity="0.9"/>
+        <rect x="898" y="-20" width="12" height="340" fill="url(#navy)" opacity="0.75"/>
+        <rect class="band-gray" x="1246" y="-20" width="30" height="340"/>
+      </g>
+
+      <!-- Glow -->
+      <ellipse cx="930" cy="160" rx="310" ry="175" fill="url(#glow)"/>
+
+      <!-- Laptop -->
+      <rect class="lid" x="766" y="38" width="328" height="212" rx="14"/>
+      <rect x="778" y="50" width="304" height="182" rx="6" fill="url(#screen)"/>
+
+      <!-- Minimap -->
+      <rect class="is-panel-bg" x="1006" y="50" width="76" height="182" rx="6"/>
+      <rect class="is-panel" x="1018" y="66" width="52" height="6" rx="3"/>
+      <rect class="is-panel" x="1018" y="80" width="40" height="6" rx="3"/>
+      <rect class="is-panel" x="1018" y="94" width="48" height="6" rx="3"/>
+      <rect class="is-panel" x="1018" y="108" width="32" height="6" rx="3"/>
+      <rect class="is-panel" x="1018" y="122" width="44" height="6" rx="3"/>
+      <rect class="is-panel" x="1018" y="136" width="36" height="6" rx="3"/>
+
+      <!-- Code-Zeilen -->
+      <rect class="is-blue"  x="796" y="70"  width="38" height="9" rx="4.5"/>
+      <rect class="is-light" x="842" y="70"  width="76" height="9" rx="4.5"/>
+      <rect class="is-slate" x="926" y="70"  width="48" height="9" rx="4.5"/>
+
+      <rect class="is-slate" x="816" y="90"  width="28" height="9" rx="4.5"/>
+      <rect class="is-amber" x="852" y="90"  width="64" height="9" rx="4.5"/>
+      <rect class="is-light" x="924" y="90"  width="42" height="9" rx="4.5"/>
+
+      <rect class="is-green" x="816" y="110" width="112" height="9" rx="4.5"/>
+      <rect class="is-slate" x="936" y="110" width="30" height="9" rx="4.5"/>
+
+      <rect class="is-slate" x="796" y="130" width="22" height="9" rx="4.5"/>
+
+      <rect class="is-blue"  x="796" y="150" width="30" height="9" rx="4.5"/>
+      <rect class="is-red"   x="834" y="150" width="54" height="9" rx="4.5"/>
+      <rect class="is-light" x="896" y="150" width="68" height="9" rx="4.5"/>
+
+      <rect class="is-light" x="816" y="170" width="46" height="9" rx="4.5"/>
+      <rect class="is-amber" x="870" y="170" width="38" height="9" rx="4.5"/>
+      <rect class="is-slate" x="916" y="170" width="52" height="9" rx="4.5"/>
+
+      <rect class="is-green" x="816" y="190" width="84" height="9" rx="4.5"/>
+
+      <rect class="is-slate" x="796" y="210" width="24" height="9" rx="4.5"/>
+      <rect class="is-cursor" x="828" y="208" width="3" height="13" rx="1.5"/>
+
+      <!-- Glanz -->
+      <polygon points="778,50 900,50 814,232 778,232" fill="url(#glare)"/>
+
+      <!-- Scharnier + Basis -->
+      <rect class="hinge" x="890" y="250" width="80" height="6" rx="3"/>
+      <rect x="720" y="256" width="420" height="16" rx="8" fill="url(#body)"/>
+      <rect class="corner" x="900" y="256" width="60" height="6" rx="3"/>
+    </g>
+
+    <!-- Logo-Bildmarke (Dark-Variante) -->
+    <g transform="translate(64,102) scale(2)" aria-hidden="true">
+      <polygon fill="#64748b" points="0,0 17.5,0 0,23.33"/>
+      <polygon fill="#bc0003" points="21.5,0 40.5,0 6,46 0,46 0,28.67"/>
+      <polygon fill="#545C70" points="25.25,25.67 40.5,46 21.5,46 15.75,38.33"/>
+    </g>
+
+    <!-- Text links -->
+    <text class="kicker" x="176" y="104">Softwareentwicklung &amp; IT-Dienstleistungen Kuntze</text>
+    <text class="title" x="174" y="158">Lukas Kuntze</text>
+    <text class="lead" x="176" y="200">Software, die deine Prozesse trägt.</text>
+  </g>
+
+  <!-- feiner Rand -->
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+</svg>
