@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+hook_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+branch_name_regex="$(cat "${hook_dir}/branch-name.pattern")"
+
+remote_name="$1"
+
+# The default branch is determined from the remote, as repositories derived from this template
+# may use a default branch other than 'main'. If the remote HEAD is not known locally, for example
+# after 'git remote add', 'main' is assumed.
+default_branch="$(git symbolic-ref --quiet --short "refs/remotes/${remote_name}/HEAD" 2>/dev/null)"
+default_branch="${default_branch#"${remote_name}/"}"
+default_branch="${default_branch:-main}"
+
+zero_sha="0000000000000000000000000000000000000000"
+
+invalid_branches=()
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    # Branch deletions are excluded from validation, as they do not introduce a new branch name.
+    if [[ "$local_sha" == "$zero_sha" ]]; then
+        continue
+    fi
+
+    # Validation is restricted to the creation of a branch on the remote. A branch that already
+    # exists on the remote retains its name, which is why rejecting subsequent pushes would not
+    # resolve a violation.
+    if [[ "$remote_sha" != "$zero_sha" ]]; then
+        continue
+    fi
+
+    # The branch name on the remote is authoritative, as it may differ from the local branch name,
+    # for example when pushing with an explicit refspec or from a detached HEAD.
+    if [[ "$remote_ref" != refs/heads/* ]]; then
+        continue
+    fi
+
+    branch_name="${remote_ref#refs/heads/}"
+
+    if [[ "$branch_name" == "$default_branch" ]]; then
+        continue
+    fi
+
+    if [[ ! "$branch_name" =~ $branch_name_regex ]]; then
+        invalid_branches+=("$branch_name")
+    fi
+done
+
+if [[ "${#invalid_branches[@]}" -eq 0 ]]; then
+    exit 0
+fi
+
+printf "\e[31mThe following branch names do not meet the required naming convention.\e[0m\n"
+for branch_name in "${invalid_branches[@]}"; do
+    printf "\e[31mx %s\e[0m\n" "$branch_name"
+done
+echo
+echo "Expected format:"
+echo "  <type>/<short-description>   for example: feat/add-authentication"
+echo
+echo "As the branch does not yet exist on the remote, it can be renamed without further consequences:"
+echo "  git branch -m <new-name>"
+echo "Alternatively, the branch can be pushed under a compliant remote name:"
+echo "  git push -u origin <local-branch>:<new-name>"
+echo "Further details are provided in the Branch Naming section of CONTRIBUTING.md."
+exit 1
